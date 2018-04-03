@@ -7,27 +7,19 @@ def radix_sort(array):
 
     number_of_digits = len(str(max(array)))
 
-    # make initial buckets
-    buckets = []
-    for i in range(0, 10):
-        buckets.append([])
-
-    # loop through digits and sort
     for i in range(1, (number_of_digits + 1)):
+        buckets = []
+        for i in range(0, 10):
+            buckets.append([])
 
       for j in range(len(array)):
         digit = ((array[j] % (10**i)) - (array[j] % (10**(i-1)))) // (10 **(i-1))
         buckets[digit].append(array[j])
 
       array = []
-
       for k in range(len(buckets)):
         array = array + buckets[k]
-
-      buckets = []
-      for i in range(0, 10):
-        buckets.append([])
-
+        
     print(array)
 
 radix_sort(my_arr)
