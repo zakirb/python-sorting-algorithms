@@ -9,17 +9,17 @@ def radix_sort(array):
 
     for i in range(1, (number_of_digits + 1)):
         buckets = []
-        for i in range(0, 10):
+        for _ in range(0, 10):
             buckets.append([])
 
-      for j in range(len(array)):
-        digit = ((array[j] % (10**i)) - (array[j] % (10**(i-1)))) // (10 **(i-1))
-        buckets[digit].append(array[j])
+        for j in range(len(array)):
+            digit = ((array[j] % (10**i)) - (array[j] % (10**(i-1)))) // (10 **(i-1))
+            buckets[digit].append(array[j])
 
-      array = []
-      for k in range(len(buckets)):
-        array = array + buckets[k]
-        
+        array = []
+        for k in range(len(buckets)):
+            array = array + buckets[k]
+
     print(array)
 
 radix_sort(my_arr)
